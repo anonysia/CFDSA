@@ -1,0 +1,2 @@
+docker build -t dovbearjscript:v1 .
+docker run -d -p 8082:5000 -e INSTANCE_NAME="My Instance"  -e INSTANCE_HASH="My HAsh" -e PORT="5000" --name dovbearapp_env2 dovbearjscript:v1
