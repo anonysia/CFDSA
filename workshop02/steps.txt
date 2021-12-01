@@ -1,0 +1,6 @@
+kubectl apply -f bggapp-ns.yaml
+kubectl apply -f bggapp-cfg.yaml -n bggns
+kubectl apply -f bggdb-deploy.yaml -n bggns
+kubectl apply -f bggdb-svc.yaml -nbggns
+kubectl apply -f bggapp-v1-deploy.yaml -n bggns
+kubectl apply -f bggapp-svc.yaml -nbggns
