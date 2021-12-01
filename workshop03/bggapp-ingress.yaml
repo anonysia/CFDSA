@@ -1,0 +1,28 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+    name: bggapp-ing
+    labels:
+        name: bggapp-ing
+spec:
+    ingressClassName: nginx
+    rules:
+    - host: bggapp-167.172.5.165.nip.io
+      http:
+        paths:
+        -  path: /v1
+           pathType: Prefix
+           backend:
+             service: 
+                name: bggapp-v1-svc
+                port: 
+                  name: bggapp-svc-port
+        -  path: /v2
+           pathType: Prefix
+           backend:
+             service: 
+                name: bggapp-v2-svc
+                port: 
+                  name: bggapp-svc-port                   
+    
