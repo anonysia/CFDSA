@@ -1,0 +1,2 @@
+docker build -t myapp1:v1 .
+docker run -d -p 5000:3000 --name myapp1 myapp1:v1
