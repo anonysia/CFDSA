@@ -8,10 +8,9 @@ metadata:
 type: Opaque
 data: 
     WORDPRESS_DB_PASSWORD: Y2hhbmdlaXQ=
-    MYSQL_ROOT_PASSWORD: Y2hhbmdlaXQ=
     # Config for MySQL CLuster
     ROOT_PASSWORD: Y2hhbmdlaXQ=
-    DATABASE: d29yZHByZXNz
+    DATABASE: d29yZHByZXNzX2Ri
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -20,8 +19,7 @@ metadata:
     labels:
         name: wpapp-cm
 data:
-    #WORDPRESS_DB_USER: root
-    #WORDPRESS_DB_HOST: wpdb-mysql-mysql-master.svc.cluster.local
+    WORDPRESS_DB_USER: root
     WORDPRESS_DB_HOST: wpdb-mysql-mysql-master
-    #WORDPRESS_DB_NAME: wordpress_db
+    WORDPRESS_DB_NAME: wordpress_db
     
