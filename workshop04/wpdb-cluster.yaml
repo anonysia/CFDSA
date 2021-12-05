@@ -1,0 +1,20 @@
+---
+apiVersion: mysql.presslabs.org/v1alpha1
+kind: MysqlCluster
+metadata:
+    name: wpdb-mysql
+    labels:
+        name: wpdb-mysql
+spec:
+    replicas: 2
+    secretName: wpapp-secret
+    image: mysql:5 
+    volumeSpec:
+        persistentVolumeClaim:
+            accessModes:
+            - ReadWriteOnce
+            storageClassName: do-block-storage
+            resources:
+                requests:
+                    storage: 1Gi
+    
