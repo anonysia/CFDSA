@@ -1,38 +1,39 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: wp-svc
+  name: wpapp-svc
   labels:
-    name: wp-svc
+    name: wpapp-svc
 
 spec:
   ports:
     - port: 80
+      name: wpapp-svc-port
   selector:
-    name: wp-pod
+    name: wpapp-pod
   type: ClusterIP
 
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wp-deployment
+  name: wpapp-deployment
   labels:
-    name: wp-deployment
+    name: wpapp-deployment
 spec:
   selector:
     matchLabels:
-      name: wp-pod
+      name: wpapp-pod
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        name: wp-pod
+        name: wpapp-pod
     spec:
       containers:
       - image: wordpress:4.8-apache
-        name: wp-container
+        name: wpapp-container
 
         envFrom:
         - configMapRef:
@@ -42,5 +43,5 @@ spec:
             name: wpapp-secret        
         ports:
         - containerPort: 80
-          name: wp-pod-port
+          name: wpapp-pod-port
 
