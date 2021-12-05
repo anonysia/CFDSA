@@ -40,6 +40,9 @@ spec:
           value: wpdb-mysql-mysql-master
 
         envFrom:
+        - configMapRef:
+            name: wpapp-cm
+        envFrom:
         - secretRef:
             name: wpapp-secret        
         ports:
